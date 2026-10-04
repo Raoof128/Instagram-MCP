@@ -13,6 +13,9 @@ implementation's own audit trail is `AGENT.md` and `CHANGELOG.md` in
   [Code of Conduct](CODE_OF_CONDUCT.md) and an [MIT licence](LICENSE).
 - The specification, plan and gauntlet records moved under [`docs/`](docs/).
 - The mirrors now match comms at `3874771`.
+- Every branch merged into `main`. The independent v0.5 gauntlet from branch
+  `claude/gallant-volta-qcs46n` is kept as
+  [`docs/gauntlet/GAUNTLET-v0.5-independent.md`](docs/gauntlet/GAUNTLET-v0.5-independent.md).
 
 ## 2026-10-04: implemented and gated in comms
 

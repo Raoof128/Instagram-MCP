@@ -160,7 +160,7 @@ ledger in comms' `AGENT.md`. Deviations from the plan are rulings R-IG1 to R-IG9
 | [`docs/SPEC.md`](docs/SPEC.md) | The specification, v0.6 rev 2 (a mirror of the canonical copy in comms) |
 | [`docs/PLAN.md`](docs/PLAN.md) | The implementation plan, tasks IG-0 to IG-7 |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | How a call flows, the publishing ledger and the trust boundaries |
-| [`docs/gauntlet/`](docs/gauntlet/) | The two verification records (v0.5 and v0.6) |
+| [`docs/gauntlet/`](docs/gauntlet/) | The verification records: v0.5 (canonical, plus an independent second run) and v0.6 |
 | [`CHANGELOG.md`](CHANGELOG.md) | Every version of the design |
 | [`SECURITY.md`](SECURITY.md) | How to report a vulnerability, and what is in scope |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to propose a change |
