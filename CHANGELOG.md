@@ -1,0 +1,55 @@
+# Changelog
+
+Every version of the Instagram MCP design, newest first. Dates are Australia/Sydney. The
+implementation's own audit trail is `AGENT.md` and `CHANGELOG.md` in
+[comms](https://github.com/Raoof128/telegram-mcp/tree/comms-instagram-spec).
+
+## Unreleased: repository presentation
+
+- A README covering status, the 22 tools, the security model, a quick start and verification.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): components, a write step by step, the
+  publishing ledger, storage and trust boundaries.
+- [`SECURITY.md`](SECURITY.md), [`CONTRIBUTING.md`](CONTRIBUTING.md), the
+  [Code of Conduct](CODE_OF_CONDUCT.md) and an [MIT licence](LICENSE).
+- The specification, plan and gauntlet records moved under [`docs/`](docs/).
+- The mirrors now match comms at `3874771`.
+
+## 2026-10-04: implemented and gated in comms
+
+- Plan tasks IG-0 to IG-6 implemented in comms on branch `comms-instagram-spec`. Each commit
+  passed the full gate on its own.
+- 22 tools (14 reads, 8 writes), schema v10, the `igk_` publishing ledger, and
+  `requiresUserInteraction` on the four public or irreversible writes.
+- An end-to-end smoke through the installed binary covers all 22 tools on a real daemon.
+- Deviations from the plan are rulings R-IG1 to R-IG9 in comms. Two defects were found and fixed
+  on the way: a replayed request re-ran its pre-checks, and the conformance contracts had no
+  cases.
+- Mirrors updated at `3203831`.
+
+## 2026-10-04: v0.6 revision 2 and the plan (`da9563e`)
+
+- Revision 2 answers the v0.6 gauntlet. Publishing became three single-effect CREATEs on a
+  durable container ref, so the existing mutation executor fits without changes. Every code
+  change the design needs is listed in section 14.
+- The implementation plan (tasks IG-0 to IG-7) added as `PLAN.md`.
+
+## 2026-10-04: v0.6 gauntlet (`7e5995d` to `85cf0b1`)
+
+- Verified the Python SDK and stdio-proxy claims live, checked every transcribed fact, and tested
+  the fit against comms' code. Verdict: the actor design holds, and the publish flow needed
+  re-cutting before adoption.
+
+## 2026-10-04: v0.6, rewritten as a comms actor (`52759c5`)
+
+- The design moved from a standalone TypeScript server to a Python actor inside comms, reusing
+  its secret store, audit chain, replay safety, host permissions and daemon.
+
+## 2026-10-04: v0.5 gauntlet (`5dcfff9`, `cdae96e`)
+
+- Every external claim in v0.5 checked against Meta's developer documentation, the MCP
+  specification and the Claude Code documentation, with live SDK runs. The record became the
+  verification authority for the Meta facts.
+
+## 2026-10-04: v0.5, the TypeScript specification (`7096036`)
+
+- The first specification: a standalone Instagram MCP server in TypeScript.

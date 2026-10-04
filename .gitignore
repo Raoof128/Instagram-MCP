@@ -1,0 +1,22 @@
+# Never commit credentials, tokens or local state.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.db
+*.sqlite
+*.sqlite3
+*.session
+secrets/
+accounts.json
+
+# Editors and OS noise
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local agent settings
+.claude/settings.local.json
