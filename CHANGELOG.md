@@ -2,9 +2,21 @@
 
 Every version of the Instagram MCP design, newest first. Dates are Australia/Sydney. The
 implementation's own audit trail is `AGENT.md` and `CHANGELOG.md` in
-[comms](https://github.com/Raoof128/telegram-mcp/tree/comms-instagram-spec).
+[comms](https://github.com/Raoof128/telegram-mcp).
 
-## Unreleased: repository presentation
+## 2026-10-04: Stories publishing (revision 3)
+
+- At the owner's request, the actor publishes Stories as well as posts. `container_create` gains
+  the kinds `story_image` and `story_video`; `publish` publishes a Story like any container.
+- Checked first against Meta's Instagram Login publishing guide and the IG User Media reference:
+  a Story takes only its image or video URL, supports no stickers, and a Story video runs 3 to 60
+  seconds.
+- Specification revision 3: D-I10 now excludes only *reading* Stories. Ruling R-IG10 in comms;
+  plan task IG-8; schema migration v11 lets the container ledger record a Story.
+- Implemented on comms branch `comms-instagram-stories`, gated, and published by the real-daemon
+  smoke.
+
+## Repository presentation
 
 - A README covering status, the 22 tools, the security model, a quick start and verification.
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): components, a write step by step, the

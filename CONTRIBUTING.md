@@ -8,7 +8,7 @@ it.
 
 | You want to... | Go to |
 |---|---|
-| Fix a bug or add a feature in the code | comms, branch `comms-instagram-spec`, under `src/comms/transports/instagram/` |
+| Fix a bug or add a feature in the code | comms, branched from `main`, under `src/comms/transports/instagram/` |
 | Correct a fact about Meta, MCP or Claude Code | this repository: an issue citing the primary source |
 | Propose a change to the design | this repository: an issue first, then a pull request to `docs/SPEC.md` |
 | Report a vulnerability | privately, as described in [`SECURITY.md`](SECURITY.md) |

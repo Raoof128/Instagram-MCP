@@ -11,9 +11,10 @@ Claude Code or any MCP client. Every write is audited, replay-safe and confirmed
 
 > **Where the code lives.** This repository holds the design: the specification, the
 > implementation plan, the verification records and the architecture notes. The implementation
-> is in [`Raoof128/telegram-mcp`](https://github.com/Raoof128/telegram-mcp) on branch
-> [`comms-instagram-spec`](https://github.com/Raoof128/telegram-mcp/tree/comms-instagram-spec),
-> under `src/comms/transports/instagram/`.
+> is in [`Raoof128/telegram-mcp`](https://github.com/Raoof128/telegram-mcp) under
+> `src/comms/transports/instagram/`, on `main`. Stories publishing is on branch
+> [`comms-instagram-stories`](https://github.com/Raoof128/telegram-mcp/tree/comms-instagram-stories)
+> until it merges.
 
 ## Contents
 
@@ -31,9 +32,9 @@ Claude Code or any MCP client. Every write is audited, replay-safe and confirmed
 
 | | |
 |---|---|
-| **Design** | Specification v0.6 rev 2, gauntleted twice ([`docs/gauntlet/`](docs/gauntlet/)) |
-| **Implementation** | Plan tasks IG-0 to IG-6 done in comms, each commit gated on its own |
-| **Tests** | 262 new tests; the full comms suite and the end-to-end smoke pass |
+| **Design** | Specification v0.6 rev 3, gauntleted twice ([`docs/gauntlet/`](docs/gauntlet/)) |
+| **Implementation** | Plan tasks IG-0 to IG-6 and IG-8 (Stories) done in comms, each commit gated on its own |
+| **Tests** | 273 new tests; the full comms suite and the end-to-end smoke pass |
 | **Real Meta** | Not yet exercised. Live gates GI-1 to GI-8 are owner-run and pending |
 | **Adoption** | Proposed amendment A49 to the comms spec; adopted only by ruling R-IG0 |
 
@@ -47,8 +48,10 @@ Nothing here has called the real Instagram API yet. Every test runs against a sc
   account cannot post even if the model asks.
 - **Reads.** Profile, media, media and account insights, comments and replies, tagged media,
   DM conversations and messages, and the publishing quota.
-- **Publishing.** Image, Reel and carousel containers from a public `https` URL, then publish.
-  Every container is recorded in a ledger that enforces Meta's 400-per-day budget.
+- **Publishing.** Feed posts (single images and carousels), Reels and Stories, each from a
+  public `https` URL, then publish. A Story takes only its image or video: Meta accepts no
+  caption, location or sticker on one. Every container is recorded in a ledger that enforces
+  Meta's 400-per-day budget.
 - **Moderation.** Reply to, hide, unhide and delete comments; turn comments on or off per post.
 - **DMs.** Reply to a person who wrote within the last 24 hours, as Meta allows. Outside the
   window the tool answers `WINDOW_CLOSED` and sends nothing.
@@ -100,7 +103,7 @@ The full mapping is in the [specification, section 12](docs/SPEC.md#12-security-
 
 ## Quick start
 
-These steps run in comms. Its [install runbook](https://github.com/Raoof128/telegram-mcp/blob/comms-instagram-spec/docs/runbooks/install.md)
+These steps run in comms. Its [install runbook](https://github.com/Raoof128/telegram-mcp/blob/main/docs/runbooks/install.md)
 covers provisioning the daemon first.
 
 1. **Describe the account** in `comms.json`. It holds no token and no ids.
@@ -119,7 +122,7 @@ covers provisioning the daemon first.
    ```
 
 3. **Connect Claude Code** through the stdio proxy. The
-   [Claude Code runbook](https://github.com/Raoof128/telegram-mcp/blob/comms-instagram-spec/docs/runbooks/clients-claude-code.md)
+   [Claude Code runbook](https://github.com/Raoof128/telegram-mcp/blob/main/docs/runbooks/clients-claude-code.md)
    sets up the ask rules.
 
    ```json
@@ -143,22 +146,22 @@ state was then driven end to end through the installed binary.
 
 | Check | Result |
 |---|---|
-| Unit and integration suite | 5,885 passed (7 failures are host-only and pre-existing) |
-| End-to-end smoke | 116 of 118 (2 host-only); all 22 Instagram tools on a real daemon |
+| Unit and integration suite | All pass on the reference host (7 failures here are host-only and pre-existing) |
+| End-to-end smoke | 116 of 118 (2 host-only); all 22 Instagram tools and a Story on a real daemon |
 | Formal models, lint, types, build | Pass |
 | Live gates against real Meta | Pending (owner-run) |
 
 The smoke adds an account through a real terminal, drives every tool over HTTP, replays a DM,
 runs both doctors, refreshes the token and verifies the audit chain. The exact record is the gate
-ledger in comms' `AGENT.md`. Deviations from the plan are rulings R-IG1 to R-IG9 in comms'
+ledger in comms' `AGENT.md`. Deviations from the plan are rulings R-IG1 to R-IG10 in comms'
 `docs/verification/comms-v0.3-rulings.md`.
 
 ## Repository map
 
 | Path | What |
 |---|---|
-| [`docs/SPEC.md`](docs/SPEC.md) | The specification, v0.6 rev 2 (a mirror of the canonical copy in comms) |
-| [`docs/PLAN.md`](docs/PLAN.md) | The implementation plan, tasks IG-0 to IG-7 |
+| [`docs/SPEC.md`](docs/SPEC.md) | The specification, v0.6 rev 3 (a mirror of the canonical copy in comms) |
+| [`docs/PLAN.md`](docs/PLAN.md) | The implementation plan, tasks IG-0 to IG-8 |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | How a call flows, the publishing ledger and the trust boundaries |
 | [`docs/gauntlet/`](docs/gauntlet/) | The verification records: v0.5 (canonical, plus an independent second run) and v0.6 |
 | [`CHANGELOG.md`](CHANGELOG.md) | Every version of the design |

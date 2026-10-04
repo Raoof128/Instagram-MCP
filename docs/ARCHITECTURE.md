@@ -2,8 +2,8 @@
 
 How the Instagram actor fits inside comms. The specification ([`SPEC.md`](SPEC.md)) is the
 authority; this page is the map. Paths are relative to the comms repository
-([`Raoof128/telegram-mcp`](https://github.com/Raoof128/telegram-mcp), branch
-`comms-instagram-spec`).
+([`Raoof128/telegram-mcp`](https://github.com/Raoof128/telegram-mcp), `main`; Stories on branch
+`comms-instagram-stories` until it merges).
 
 ## Components
 
@@ -74,7 +74,7 @@ one call and nothing ever polls.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Recorded: container_create or carousel_create<br/>(an igk_ row as soon as Meta answers)
+    [*] --> Recorded: container_create (image, Reel, Story, carousel item)<br/>or carousel_create (an igk_ row as soon as Meta answers)
     Recorded --> InProgress: publish reads IN_PROGRESS<br/>(FAILED CONTAINER_NOT_READY)
     InProgress --> Finished: publish later, with a new request_id
     Recorded --> Finished: publish reads FINISHED
@@ -91,17 +91,20 @@ stateDiagram-v2
   one from the budget.
 - **Carousels.** A carousel takes 2 to 10 child containers of the same account. A child of
   another account is `NOT_FOUND`.
+- **Stories.** A Story container (`story_image` or `story_video`) takes only its URL and is sent
+  with `media_type=STORIES`. It publishes like any other and disappears after 24 hours.
 - **Preview.** `publish_preview` reports what a create would do, and returns an advisory
   `preview_digest` that the create can echo.
 
 ## Storage
 
-Schema v10 adds three tables to `comms.db` and changes none:
+Schema v10 adds three tables to `comms.db` and changes none. v11 rebuilds the container ledger
+alone so it can record a Story, keeping every row:
 
 | Table | Holds |
 |---|---|
 | `instagram_accounts` | Alias, `iga_` ref and Instagram user id, bound once; token expiry and the last identity check |
-| `instagram_containers` | One `igk_` per Meta container: kind, creation time, status and the published `igm_` |
+| `instagram_containers` | One `igk_` per Meta container: kind (image, Reel, Story, carousel or child), creation time, status and the published `igm_` |
 | `instagram_objects` | One `igm_`, `igc_` or `igp_` per account, kind and provider id |
 
 Provider ids live only inside the encrypted database. They reach the owner through

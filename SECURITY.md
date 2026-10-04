@@ -71,7 +71,7 @@ a confirmed issue lands with a regression test, and you are credited unless you 
 ## Supported versions
 
 The design is a proposed amendment (A49) and the implementation is pre-release. Only the latest
-commit of `comms-instagram-spec` in comms receives fixes.
+commit of comms' `main` receives fixes.
 
 ## Handling your own tokens
 
