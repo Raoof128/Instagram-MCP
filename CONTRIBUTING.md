@@ -1,7 +1,7 @@
 # Contributing
 
 Thanks for your interest. This repository holds the design of the Instagram actor; the code lives
-in [comms](https://github.com/Raoof128/telegram-mcp). Where a change belongs decides how to make
+in [comms](https://github.com/Raoof128/comms-mcp). Where a change belongs decides how to make
 it.
 
 ## Where a change goes

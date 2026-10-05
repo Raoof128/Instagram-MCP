@@ -1,6 +1,6 @@
 # Instagram MCP
 
-**Instagram for AI assistants, built as an actor of the [comms](https://github.com/Raoof128/telegram-mcp) MCP gateway.**
+**Instagram for AI assistants, built as an actor of the [comms](https://github.com/Raoof128/comms-mcp) MCP gateway.**
 Read your posts, insights, comments and DMs, moderate comments, reply to DMs and publish, from
 Claude Code or any MCP client. Every write is audited, replay-safe and confirmed by the host.
 
@@ -11,7 +11,7 @@ Claude Code or any MCP client. Every write is audited, replay-safe and confirmed
 
 > **Where the code lives.** This repository holds the design: the specification, the
 > implementation plan, the verification records and the architecture notes. The implementation
-> is in [`Raoof128/telegram-mcp`](https://github.com/Raoof128/telegram-mcp) under
+> is in [`Raoof128/comms-mcp`](https://github.com/Raoof128/comms-mcp) under
 > `src/comms/transports/instagram/`, on `main`.
 
 ## Contents
@@ -101,7 +101,7 @@ The full mapping is in the [specification, section 12](docs/SPEC.md#12-security-
 
 ## Quick start
 
-These steps run in comms. Its [install runbook](https://github.com/Raoof128/telegram-mcp/blob/main/docs/runbooks/install.md)
+These steps run in comms. Its [install runbook](https://github.com/Raoof128/comms-mcp/blob/main/docs/runbooks/install.md)
 covers provisioning the daemon first.
 
 1. **Describe the account** in `comms.json`. It holds no token and no ids.
@@ -120,7 +120,7 @@ covers provisioning the daemon first.
    ```
 
 3. **Connect Claude Code** through the stdio proxy. The
-   [Claude Code runbook](https://github.com/Raoof128/telegram-mcp/blob/main/docs/runbooks/clients-claude-code.md)
+   [Claude Code runbook](https://github.com/Raoof128/comms-mcp/blob/main/docs/runbooks/clients-claude-code.md)
    sets up the ask rules.
 
    ```json

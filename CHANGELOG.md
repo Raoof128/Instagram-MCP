@@ -2,7 +2,13 @@
 
 Every version of the Instagram MCP design, newest first. Dates are Australia/Sydney. The
 implementation's own audit trail is `AGENT.md` and `CHANGELOG.md` in
-[comms](https://github.com/Raoof128/telegram-mcp).
+[comms](https://github.com/Raoof128/comms-mcp).
+
+## 2026-10-05: comms is now comms-mcp
+
+- The comms repository and its Python package were renamed from `telegram-mcp` to `comms-mcp`.
+  Every link here now points at [`Raoof128/comms-mcp`](https://github.com/Raoof128/comms-mcp).
+  The gauntlet records keep the names they were written with; GitHub redirects the old links.
 
 ## 2026-10-04: Stories publishing (revision 3)
 

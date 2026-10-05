@@ -12,7 +12,7 @@ Report privately through
 [GitHub Security Advisories](https://github.com/Raoof128/Instagram-MCP/security/advisories/new).
 If the problem is in the implementation rather than the design, you may report it on the comms
 repository's advisories instead:
-[Raoof128/telegram-mcp](https://github.com/Raoof128/telegram-mcp/security/advisories/new).
+[Raoof128/comms-mcp](https://github.com/Raoof128/comms-mcp/security/advisories/new).
 
 If neither is available to you, open a public issue that says only "security report, requesting
 private contact". A private channel will be arranged.
