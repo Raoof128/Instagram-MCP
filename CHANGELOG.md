@@ -14,7 +14,8 @@ implementation's own audit trail is `AGENT.md` and `CHANGELOG.md` in
 - Meta lists the stories edge under Instagram Login but shows only `graph.facebook.com` examples,
   so live gate GI-3 proves it on `graph.instagram.com`.
 - Specification revision 4: D-I10 keeps only other accounts' Stories and highlights out. Ruling
-  R-IG11 in comms; plan task IG-9; implemented on comms branch `comms-instagram-story-reads`.
+  R-IG11 in comms; plan task IG-9; implemented on comms branch `comms-instagram-story-reads`,
+  gated, and merged into comms `main` (merge `1f66f3e`, which also carries the rename).
 
 ## 2026-10-05: comms is now comms-mcp
 

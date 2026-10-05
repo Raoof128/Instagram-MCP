@@ -1,4 +1,4 @@
-> **Canonical copy:** `docs/superpowers/plans/2026-10-04-comms-instagram.md` in [`Raoof128/comms-mcp`](https://github.com/Raoof128/comms-mcp/blob/comms-instagram-story-reads/docs/superpowers/plans/2026-10-04-comms-instagram.md) (branch `comms-instagram-story-reads`, as of `ba05c05`). Tasks IG-0 to IG-6, IG-8 and IG-9 are done and gated there; IG-7 is the owner's. Execute it there, not here: this repository holds the design, its history and the verification records.
+> **Canonical copy:** `docs/superpowers/plans/2026-10-04-comms-instagram.md` in [`Raoof128/comms-mcp`](https://github.com/Raoof128/comms-mcp/blob/main/docs/superpowers/plans/2026-10-04-comms-instagram.md) (`main`, as of `1f66f3e`). Tasks IG-0 to IG-6, IG-8 and IG-9 are done and gated there; IG-7 is the owner's. Execute it there, not here: this repository holds the design, its history and the verification records.
 
 # Comms Instagram actor (A49): implementation plan
 
