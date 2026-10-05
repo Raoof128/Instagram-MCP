@@ -18,7 +18,7 @@ Claude Code or any MCP client. Every write is audited, replay-safe and confirmed
 
 - [Status](#status)
 - [What it does](#what-it-does)
-- [The 22 tools](#the-22-tools)
+- [The 24 tools](#the-24-tools)
 - [Security model](#security-model)
 - [Quick start](#quick-start)
 - [Verification](#verification)
@@ -30,9 +30,9 @@ Claude Code or any MCP client. Every write is audited, replay-safe and confirmed
 
 | | |
 |---|---|
-| **Design** | Specification v0.6 rev 3, gauntleted twice ([`docs/gauntlet/`](docs/gauntlet/)) |
-| **Implementation** | Plan tasks IG-0 to IG-6 and IG-8 (Stories) done in comms, each commit gated on its own |
-| **Tests** | 273 new tests; the full comms suite and the end-to-end smoke pass |
+| **Design** | Specification v0.6 rev 4, gauntleted twice ([`docs/gauntlet/`](docs/gauntlet/)) |
+| **Implementation** | Plan tasks IG-0 to IG-6, IG-8 and IG-9 (Stories) done in comms, each commit gated on its own |
+| **Tests** | 287 new tests; the full comms suite and the end-to-end smoke pass |
 | **Real Meta** | Not yet exercised. Live gates GI-1 to GI-8 are owner-run and pending |
 | **Adoption** | Proposed amendment A49 to the comms spec; adopted only by ruling R-IG0 |
 
@@ -44,8 +44,9 @@ Nothing here has called the real Instagram API yet. Every test runs against a sc
 - **Accounts.** One or more Instagram professional accounts (Business or Creator), each named by
   an alias in `comms.json`. Each account has its own `writes` and `dms` ceiling, so a read-only
   account cannot post even if the model asks.
-- **Reads.** Profile, media, media and account insights, comments and replies, tagged media,
-  DM conversations and messages, and the publishing quota.
+- **Reads.** Profile, media, media and account insights, the account's live Stories and their
+  insights, comments and replies, tagged media, DM conversations and messages, and the
+  publishing quota.
 - **Publishing.** Feed posts (single images and carousels), Reels and Stories, each from a
   public `https` URL, then publish. A Story takes only its image or video: Meta accepts no
   caption, location or sticker on one. Every container is recorded in a ledger that enforces
@@ -57,7 +58,7 @@ Nothing here has called the real Instagram API yet. Every test runs against a sc
 It uses the **Instagram API with Instagram Login** (`graph.instagram.com`). No Facebook Page is
 needed.
 
-## The 22 tools
+## The 24 tools
 
 All tools are named `comms_instagram_<name>`.
 
@@ -65,6 +66,7 @@ All tools are named `comms_instagram_<name>`.
 |---|---|---|
 | Accounts | `account_list`, `whoami`, `profile_get` | read |
 | Media | `media_list`, `media_get`, `media_insights`, `account_insights`, `tag_list` | read |
+| Stories | `story_list`, `story_insights` | read |
 | Comments | `comment_list`, `comment_replies` | read |
 | DMs | `conversation_list`, `conversation_messages` | read |
 | Publishing | `publish_quota`, `publish_preview` | read |
@@ -145,7 +147,7 @@ state was then driven end to end through the installed binary.
 | Check | Result |
 |---|---|
 | Unit and integration suite | All pass on the reference host (7 failures here are host-only and pre-existing) |
-| End-to-end smoke | 116 of 118 (2 host-only); all 22 Instagram tools and a Story on a real daemon |
+| End-to-end smoke | 116 of 118 (2 host-only); all 24 Instagram tools, a Story published and read back, on a real daemon |
 | Formal models, lint, types, build | Pass |
 | Live gates against real Meta | Pending (owner-run) |
 

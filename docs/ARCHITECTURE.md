@@ -36,7 +36,7 @@ flowchart LR
 | `src/comms/transports/instagram/urls.py` | Checks a media URL before it is handed to Meta |
 | `src/comms/runtime/instagram.py` | `InstagramService`: every tool's logic, cursors, the write path and pre-checks |
 | `src/comms/runtime/operator/instagram.py` | The operator commands: `account add`, `list`, `remove`, `token refresh`, `doctor` |
-| `src/comms/mcp/tools/instagram.py` | The 22 tool schemas |
+| `src/comms/mcp/tools/instagram.py` | The 24 tool schemas |
 
 ## A write, step by step
 
@@ -91,7 +91,8 @@ stateDiagram-v2
 - **Carousels.** A carousel takes 2 to 10 child containers of the same account. A child of
   another account is `NOT_FOUND`.
 - **Stories.** A Story container (`story_image` or `story_video`) takes only its URL and is sent
-  with `media_type=STORIES`. It publishes like any other and disappears after 24 hours.
+  with `media_type=STORIES`. It publishes like any other and disappears after 24 hours. `story_list` reads the
+  account's live Stories back as ordinary `igm_` refs, and `story_insights` asks their own metrics.
 - **Preview.** `publish_preview` reports what a create would do, and returns an advisory
   `preview_digest` that the create can echo.
 

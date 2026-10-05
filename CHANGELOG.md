@@ -4,6 +4,18 @@ Every version of the Instagram MCP design, newest first. Dates are Australia/Syd
 implementation's own audit trail is `AGENT.md` and `CHANGELOG.md` in
 [comms](https://github.com/Raoof128/comms-mcp).
 
+## 2026-10-05: reading Stories (revision 4)
+
+- At the owner's request, the actor reads back the Stories it publishes. Two read tools, so 24:
+  `story_list` returns the account's live Stories as ordinary `igm_` refs, and `story_insights`
+  asks a Story's own metrics (`navigation`, `replies`, `profile_activity` and the rest).
+- Story insights are checked before any call. A Story seen by fewer than five people answers
+  `NOT_ENOUGH_DATA`. No new scope, host or table.
+- Meta lists the stories edge under Instagram Login but shows only `graph.facebook.com` examples,
+  so live gate GI-3 proves it on `graph.instagram.com`.
+- Specification revision 4: D-I10 keeps only other accounts' Stories and highlights out. Ruling
+  R-IG11 in comms; plan task IG-9; implemented on comms branch `comms-instagram-story-reads`.
+
 ## 2026-10-05: comms is now comms-mcp
 
 - The comms repository and its Python package were renamed from `telegram-mcp` to `comms-mcp`.
