@@ -12,9 +12,7 @@ Claude Code or any MCP client. Every write is audited, replay-safe and confirmed
 > **Where the code lives.** This repository holds the design: the specification, the
 > implementation plan, the verification records and the architecture notes. The implementation
 > is in [`Raoof128/telegram-mcp`](https://github.com/Raoof128/telegram-mcp) under
-> `src/comms/transports/instagram/`, on `main`. Stories publishing is on branch
-> [`comms-instagram-stories`](https://github.com/Raoof128/telegram-mcp/tree/comms-instagram-stories)
-> until it merges.
+> `src/comms/transports/instagram/`, on `main`.
 
 ## Contents
 

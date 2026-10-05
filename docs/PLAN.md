@@ -1,4 +1,4 @@
-> **Canonical copy:** `docs/superpowers/plans/2026-10-04-comms-instagram.md` in [`Raoof128/telegram-mcp`](https://github.com/Raoof128/telegram-mcp/blob/comms-instagram-stories/docs/superpowers/plans/2026-10-04-comms-instagram.md) (branch `comms-instagram-stories`, as of `9374c6c`). Tasks IG-0 to IG-6 and IG-8 are done and gated there; IG-7 is the owner's. Execute it there, not here: this repository holds the design, its history and the verification records.
+> **Canonical copy:** `docs/superpowers/plans/2026-10-04-comms-instagram.md` in [`Raoof128/telegram-mcp`](https://github.com/Raoof128/telegram-mcp/blob/main/docs/superpowers/plans/2026-10-04-comms-instagram.md) (`main`, as of `9374c6c`). Tasks IG-0 to IG-6 and IG-8 are done and gated there; IG-7 is the owner's. Execute it there, not here: this repository holds the design, its history and the verification records.
 
 # Comms Instagram actor (A49): implementation plan
 

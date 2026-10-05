@@ -2,8 +2,7 @@
 
 How the Instagram actor fits inside comms. The specification ([`SPEC.md`](SPEC.md)) is the
 authority; this page is the map. Paths are relative to the comms repository
-([`Raoof128/telegram-mcp`](https://github.com/Raoof128/telegram-mcp), `main`; Stories on branch
-`comms-instagram-stories` until it merges).
+([`Raoof128/telegram-mcp`](https://github.com/Raoof128/telegram-mcp), `main`).
 
 ## Components
 

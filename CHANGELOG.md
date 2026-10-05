@@ -13,8 +13,8 @@ implementation's own audit trail is `AGENT.md` and `CHANGELOG.md` in
   seconds.
 - Specification revision 3: D-I10 now excludes only *reading* Stories. Ruling R-IG10 in comms;
   plan task IG-8; schema migration v11 lets the container ledger record a Story.
-- Implemented on comms branch `comms-instagram-stories`, gated, and published by the real-daemon
-  smoke.
+- Implemented on comms branch `comms-instagram-stories`, gated, published by the real-daemon
+  smoke, and merged into comms `main` at `9374c6c`.
 
 ## Repository presentation
 
