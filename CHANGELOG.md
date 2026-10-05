@@ -4,6 +4,20 @@ Every version of the Instagram MCP design, newest first. Dates are Australia/Syd
 implementation's own audit trail is `AGENT.md` and `CHANGELOG.md` in
 [comms](https://github.com/Raoof128/comms-mcp).
 
+## 2026-10-05: first live run against Meta
+
+- The owner renamed the GitHub repository, so every `comms-mcp` link here now resolves; W-Vault's
+  Privacy Policy and data deletion URLs moved to `https://raoof128.github.io/comms-mcp/privacy/`.
+- The actor ran live on the owner's account @punpun.r12 (alias `main`). GI-3 and GI-5 pass: quota
+  100, a feed image and a Story published and read back (the `stories` edge answers on
+  `graph.instagram.com`), account and post insights read. GI-1 passes doctor and the comment hide
+  round trip (refresh waits for a 24-hour-old token); GI-4 passes with captions off.
+- Two findings for a ruling: a DM thread without exactly one counterpart fails the whole
+  `conversation_list` page, and `media_get` on a deleted post answers `INVALID_ARGUMENT`.
+- A second account, @mqpersiansociety (alias `mqps`, writes on, DMs off), reads live; refs stay
+  isolated per account. comms is registered in Claude Code and Codex.
+- Evidence: comms `docs/verification/live-acceptance/2026-10-05-instagram.md`.
+
 ## 2026-10-05: reading Stories (revision 4)
 
 - At the owner's request, the actor reads back the Stories it publishes. Two read tools, so 24:

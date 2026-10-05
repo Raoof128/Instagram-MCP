@@ -6,7 +6,7 @@ Claude Code or any MCP client. Every write is audited, replay-safe and confirmed
 
 ![Status: proposed](https://img.shields.io/badge/status-proposed%20amendment%20A49-orange)
 ![Gate: passing](https://img.shields.io/badge/gate-passing%20(simulated%20Graph)-brightgreen)
-![Live gates: pending](https://img.shields.io/badge/live%20gates-pending-lightgrey)
+![Live gates: partial](https://img.shields.io/badge/live%20gates-partial-yellow)
 ![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue)
 
 > **Where the code lives.** This repository holds the design: the specification, the
@@ -33,11 +33,13 @@ Claude Code or any MCP client. Every write is audited, replay-safe and confirmed
 | **Design** | Specification v0.6 rev 4, gauntleted twice ([`docs/gauntlet/`](docs/gauntlet/)) |
 | **Implementation** | Plan tasks IG-0 to IG-6, IG-8 and IG-9 (Stories) done in comms, each commit gated on its own |
 | **Tests** | 287 new tests; the full comms suite and the end-to-end smoke pass |
-| **Real Meta** | Not yet exercised. Live gates GI-1 to GI-8 are owner-run and pending |
+| **Real Meta** | Live since 2026-10-05 on two accounts. GI-3 and GI-5 pass; GI-1, GI-4 and GI-8 partly; GI-2, GI-6 and GI-7 pending ([evidence](https://github.com/Raoof128/comms-mcp/blob/main/docs/verification/live-acceptance/2026-10-05-instagram.md)) |
 | **Adoption** | Proposed amendment A49 to the comms spec; adopted only by ruling R-IG0 |
 
-Nothing here has called the real Instagram API yet. Every test runs against a scripted
-`graph.instagram.com`. Treat it as a well-tested candidate, not a production system.
+On 2026-10-05 the actor first ran against the real Instagram API: a feed post and a Story
+were published and read back, comments were hidden, replied to and deleted, and replay safety held.
+The remaining gates and ruling R-IG0 still stand, so treat it as a live-tested candidate, not a
+production system.
 
 ## What it does
 
@@ -149,7 +151,7 @@ state was then driven end to end through the installed binary.
 | Unit and integration suite | All pass on the reference host (7 failures here are host-only and pre-existing) |
 | End-to-end smoke | 116 of 118 (2 host-only); all 24 Instagram tools, a Story published and read back, on a real daemon |
 | Formal models, lint, types, build | Pass |
-| Live gates against real Meta | Pending (owner-run) |
+| Live gates against real Meta | Partial: GI-3 and GI-5 pass, GI-1/GI-4/GI-8 partly, GI-2/GI-6/GI-7 pending; two findings for a ruling |
 
 The smoke adds an account through a real terminal, drives every tool over HTTP, replays a DM,
 runs both doctors, refreshes the token and verifies the audit chain. The exact record is the gate
