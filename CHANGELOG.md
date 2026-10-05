@@ -17,11 +17,15 @@ implementation's own audit trail is `AGENT.md` and `CHANGELOG.md` in
   R-IG11 in comms; plan task IG-9; implemented on comms branch `comms-instagram-story-reads`,
   gated, and merged into comms `main` (merge `1f66f3e`, which also carries the rename).
 
-## 2026-10-05: comms is now comms-mcp
+## 2026-10-05: both mains merged; the comms rename
 
-- The comms repository and its Python package were renamed from `telegram-mcp` to `comms-mcp`.
-  Every link here now points at [`Raoof128/comms-mcp`](https://github.com/Raoof128/comms-mcp).
-  The gauntlet records keep the names they were written with; GitHub redirects the old links.
+- comms `main` is at `1f66f3e` and this repository's `main` holds every change above. Every
+  branch in both repositories is merged into `main`, and each comms commit passed the full gate.
+- comms' Python package is now `comms-mcp`, and every link here points at
+  [`Raoof128/comms-mcp`](https://github.com/Raoof128/comms-mcp). **The GitHub repository itself
+  is still `Raoof128/telegram-mcp` until the owner renames it in Settings.** Until then those
+  links answer 404; afterwards GitHub redirects the old name to the new one. The gauntlet records
+  keep the names they were written with.
 
 ## 2026-10-04: Stories publishing (revision 3)
 
