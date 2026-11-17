@@ -4,6 +4,14 @@ Every version of the Instagram MCP design, newest first. Dates are Australia/Syd
 implementation's own audit trail is `AGENT.md` and `CHANGELOG.md` in
 [comms](https://github.com/Raoof128/comms-mcp).
 
+## 2026-11-17: account handles replaced with aliases
+
+- The entry for the first live run named the two Instagram accounts by their handles. It now uses
+  the aliases the record already used (`main`, `mqps`). The same change was made in comms. The
+  handles remain in this repository's Git history.
+- The repository has a description now: a design record for the Instagram actor of the comms MCP
+  gateway, with no code here.
+
 ## 2026-10-05: first live run against Meta
 
 - The owner renamed the GitHub repository, so every `comms-mcp` link here now resolves; W-Vault's
